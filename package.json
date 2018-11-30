@@ -1,0 +1,23 @@
+{
+  "name": "deckstone",
+  "version": "1.0.0",
+  "description": "deckstring decrypter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishinath4159/deckstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishinath4159/deckstone/issues"
+  },
+  "homepage": "https://github.com/rishinath4159/deckstone#readme",
+  "dependencies": {
+    "deckstrings": "^2.0.0"
+  }
+}
