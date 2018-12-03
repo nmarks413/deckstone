@@ -2,39 +2,29 @@ const deckstring = require("deckstrings");
 const cardList = require("./cards.json");
 
 
-//Input deckstring:
+//Demonstration of program:
+//Uses a Resurrect Priest deck netdecked from hsreplay.net.
 deckcode = "AAECAa0GDAmXArQD7QXTCtcKvsgC5swCws4CkNMCoIADjYIDCaEE0cEC2MEC5cwCtM4C8M8C6NAC4+kCn+sCAA=="
 const deck = deckstring.decode(deckcode);
+console.log(orderCards(deck));
 
-//Getting names of dbfIds and storing # of copies:
-var orderDeck = [];
-for(var i=0; i<deck.cards.length; i++){
-  orderDeck.push([search(deck.cards[i][0]),deck.cards[i][1]]);
-};
-
-//Sorting in order of mana cost:
-orderDeck.sort(function(a, b){
-  return search(a[0])-search(b[0])
-});
-
-//Formatting and printing output:
-console.log('# ' + search(deck.heroes[0]));
-console.log('#')
-
-for(let i in orderDeck){
-  console.log('# ' + orderDeck[i][1] + 'x ' + orderDeck[i][0]);
+//Resulting ordered deck is a two-dimensional array. The first column is the name of the card, the second column is the amount of copies of that card.
+function orderCards(deck){
+  let result = [];
+  for(var i=0; i<deck.cards.length; i++){
+    result.push([search('name', deck.cards[i][0]),deck.cards[i][1]]);
+  };
+  result.sort(function(a, b){
+    return search('cost', a[0])-search('cost', b[0])
+  });
+  return result;
 }
 
-console.log('#')
-console.log('# ' + deckcode)
-
-//Search function (Can return name for dbfId OR return mana cost for name)
-function search(card){
+//Search function searches for a field in cards.json for a card's dbfId or name field match.
+function search(field, card){
   for(var i=0; i<cardList.length; i++){
-    if(cardList[i].dbfId == Number(card)){
-      return cardList[i].name;
-    } else if (cardList[i].name == card){
-      return cardList[i].cost;
+    if(cardList[i].dbfId == card || cardList[i].name == card){
+      return cardList[i][field];
     }
   }
 }
