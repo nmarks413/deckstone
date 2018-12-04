@@ -1,12 +1,22 @@
 //Deck decoder using other two functions and .decode function imported from deckstrings module. Inputs: Deckcode, the encoded deckstring you want to decode, and div, the html element you want to append text to.
 function decodeDeck(deckcode, div){
-  let deck = deckstrings.decode(deckcode);
+  let deck = deckstrings.decode(filter(deckcode));
   deck = orderCards(deck);
   for(var i=0; i<deck.length; i++){
     let br = document.createElement("br");
     div.appendChild(br);
     let content = document.createTextNode("\n" + deck[i][1] + "x " + deck[i][0]);
     div.appendChild(content);
+  }
+}
+
+//Filters multiline strings by eliminating comments (Comments are lines that start with '#' and are to be ignored)
+function filter(deck){
+  let filtered = deck.split(/\n/g)
+  for (var i=0; i<filtered.length; i++){
+    if (filtered[i].charAt(0) !== "#"){
+      return(filtered[i]);
+    }
   }
 }
 
