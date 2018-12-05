@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-<body id='body'>
+<head>
+  <script src='node_modules/jquery/dist/jquery.min.js'></script>
   <script src='node_modules/deckstrings/dist/browser.js'></script>
   <script src='deckstone.js'></script>
-  <textarea id="deckstring" type="text" placeholder="Deckstring here"></textarea>
-  <input type="submit" name="submit" onclick="decodeDeck(document.getElementById('deckstring').value, document.getElementById('body'))">
+</head>
+<body>
+  <textarea id="deckstring" type="text" placeholder="Paste your deckstring here"></textarea>
+  <input type="submit" name="submit" onclick="decodeDeck(document.getElementById('deckstring').value, document.getElementById('bin'))">
+  <div id='bin'></div>
 </body>
 <html>

@@ -2,11 +2,9 @@
 function decodeDeck(deckcode, div){
   let deck = deckstrings.decode(filter(deckcode));
   deck = orderCards(deck);
+  $("#cnvs").empty();
   for(var i=0; i<deck.length; i++){
-    let br = document.createElement("br");
-    div.appendChild(br);
-    let content = document.createTextNode("\n" + deck[i][1] + "x " + deck[i][0]);
-    div.appendChild(content);
+    $(div).append($("<p></p>").text("\n" + deck[i][1] + "x " + deck[i][0]));
   }
 }
 
