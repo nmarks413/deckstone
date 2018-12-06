@@ -8,7 +8,11 @@ function decodeDeck(deckcode, div){
   deck = orderCards(deck);
   $(div).empty();
   for(var i=0; i<deck.length; i++){
-    $(div).append($("<p></p>").text("\n" + deck[i][1] + "x " + deck[i][0]));
+    //$(div).append($("<p>").text("\n" + deck[i][1] + "x " + deck[i][0]));
+    //$(div).append($("<img>").attr(`https://art.hearthstonejson.com/v1/tiles/${search('id', deck[i][0])}.png`));
+    $(div).append($("<h4>",{text: deck[i][1]}));
+    $(div).append($('<img>',{src:`https://art.hearthstonejson.com/v1/tiles/${search('id', deck[i][0])}.png`}))
+    $(div).append($('<br>'));
   }
 }
 
