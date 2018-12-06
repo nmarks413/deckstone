@@ -11,7 +11,8 @@ function decodeDeck(deckcode, div){
     //$(div).append($("<p>").text("\n" + deck[i][1] + "x " + deck[i][0]));
     //$(div).append($("<img>").attr(`https://art.hearthstonejson.com/v1/tiles/${search('id', deck[i][0])}.png`));
     $(div).append($("<h4>",{text: deck[i][1]}));
-    $(div).append($('<img>',{src:`https://art.hearthstonejson.com/v1/tiles/${search('id', deck[i][0])}.png`}))
+    $(div).append($('<img>',{src:`https://art.hearthstonejson.com/v1/tiles/${search('id', deck[i][0])}.png`}));
+    $(div).append($('<img> class = grad'));
     $(div).append($('<br>'));
   }
 }
