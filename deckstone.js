@@ -2,7 +2,7 @@
 function decodeDeck(deckcode, div){
   let deck = deckstrings.decode(filter(deckcode));
   deck = orderCards(deck);
-  $("#cnvs").empty();
+  $(div).empty();
   for(var i=0; i<deck.length; i++){
     $(div).append($("<p></p>").text("\n" + deck[i][1] + "x " + deck[i][0]));
   }
