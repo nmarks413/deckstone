@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <script src='node_modules/jquery/dist/jquery.min.js'></script>
   <script src='node_modules/deckstrings/dist/browser.js'></script>
   <script src='deckstone.js'></script>
-  <link rel='stylesheet' href='styles.css'>
+  <link rel='stylesheet' href='styles/styles.css'>
+
 </head>
 <body>
-  <input type="text" id="searchBar" onkeyup="searchCollection()" placeholder="Search for names..">
 
-  <table id="bin">
-    <tr class="header">
-      <th style="width:60%;">Card Name</th>
-    </tr>
+  <input type="text" id="searchBar" onkeyup="searchCollection()" placeholder="Search for cards..">
+
+  <table id="bin" display: "inline-block">
   </table>
 
 </body>

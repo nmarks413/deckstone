@@ -14,7 +14,7 @@ function searchCollection() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -29,12 +29,15 @@ function searchCollection() {
 
 function appendCollection(){
   for (var i=0; i<cardList.length; i++){
-    $('#bin').append($(`<tr id=${i}>`))
-    $(`#${i}`).append($(`<td id=${i}d>${cardList[i].name}</td>`))
-    //$(`#${i}d`).css("background-image", `url(https://art.hearthstonejson.com/v1/512x/${cardList[i].id}.jpg)`)
-    //$(`#${i}d`).css("background-position", "center")
+    if(cardList[i].type != "HERO"){
+      $('#bin').append($(`<tr><td class = "card cost ${cardList[i].rarity}">${cardList[i].cost}</td><td class='card' id=${i}>${cardList[i].name}</td></tr>`))
+      $(`#${i}`).css({"background":`linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0.8, 0.8, 0.8, 0.8) 40%, rgba(1, 1, 1, 1) 70%), url(https://art.hearthstonejson.com/v1/512x/${cardList[i].id}.jpg) center center no-repeat`});
+    }
   }
 }
+
+
+
 
 //Deck decoder using other two functions and .decode function imported from deckstrings module. Inputs: Deckcode, the encoded deckstring you want to decode, and div, the html element you want to append text to.
 function decodeDeck(deckcode, div){

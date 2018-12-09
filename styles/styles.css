@@ -1,0 +1,73 @@
+#searchBar {
+  width: 10%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#bin {
+  border-collapse: collapse; /* Collapse borders */
+  width: 10%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#bin th, #bin td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#bin tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#bin tr.header, #bin tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+}
+
+.card {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: 700;
+    left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9em;
+    width: calc(100% - 28px);
+}
+
+.cost {
+  font-weight: 1000;
+  font-size: 20px;
+}
+
+.FREE {
+  background-color: #D3D3D3
+}
+
+.COMMON {
+  background-color: #778899
+}
+
+.RARE {
+  background-color: #87CEFA
+}
+
+.EPIC {
+  background-color: #BA55D3
+}
+
+.LEGENDARY {
+  background-color: #FFD700
+}
