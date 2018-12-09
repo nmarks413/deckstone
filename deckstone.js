@@ -1,6 +1,20 @@
 $.getJSON("https://api.hearthstonejson.com/v1/27845/enUS/cards.collectible.json", data => {
   cardList = data;
+  appendCollection();
 });
+
+function appendCollection(){
+  for (var i=0; i<cardList.length; i++){
+    $('#static').append($(`<tr id=${i}>`))
+    $(`#${i}`).append($(`<td id=${i}d>${cardList[i].name}</td>`))
+    $(`#${i}`).append($(`<button id=${i}b type='button'>+</button`))
+    $(`#${i}b`).click(function(){
+      $('#bin').append("<tr><td>I'll figure this out later...</td></tr>")
+    })
+    $(`#${i}d`).css("background-image", `url(https://art.hearthstonejson.com/v1/512x/${cardList[i].id}.jpg)`)
+    $(`#${i}d`).css("background-position", "center")
+  }
+}
 
 //Deck decoder using other two functions and .decode function imported from deckstrings module. Inputs: Deckcode, the encoded deckstring you want to decode, and div, the html element you want to append text to.
 function decodeDeck(deckcode, div){
