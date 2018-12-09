@@ -3,16 +3,36 @@ $.getJSON("https://api.hearthstonejson.com/v1/27845/enUS/cards.collectible.json"
   appendCollection();
 });
 
+
+function searchCollection() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = $('#searchBar')[0];
+  filter = input.value.toUpperCase();
+  table = $('#bin')[0];
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+
 function appendCollection(){
   for (var i=0; i<cardList.length; i++){
-    $('#static').append($(`<tr id=${i}>`))
+    $('#bin').append($(`<tr id=${i}>`))
     $(`#${i}`).append($(`<td id=${i}d>${cardList[i].name}</td>`))
-    $(`#${i}`).append($(`<button id=${i}b type='button'>+</button`))
-    $(`#${i}b`).click(function(){
-      $('#bin').append("<tr><td>I'll figure this out later...</td></tr>")
-    })
-    $(`#${i}d`).css("background-image", `url(https://art.hearthstonejson.com/v1/512x/${cardList[i].id}.jpg)`)
-    $(`#${i}d`).css("background-position", "center")
+    //$(`#${i}d`).css("background-image", `url(https://art.hearthstonejson.com/v1/512x/${cardList[i].id}.jpg)`)
+    //$(`#${i}d`).css("background-position", "center")
   }
 }
 
